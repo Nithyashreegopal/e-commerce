@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel � PressMart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-text">Press<span>Mart</span>.</div>
+    <div class="sb-logo-sub">Admin Panel</div>
+  </div>
+
+  <nav class="sb-nav">
+    <div class="sb-section">Overview</div>
+    <a class="sb-item active" data-page="dashboard" href="#">
+      <i class="fa-solid fa-chart-line"></i><span>Dashboard</span>
+    </a>
+    <a class="sb-item" data-page="analytics" href="#">
+      <i class="fa-solid fa-chart-bar"></i><span>Analytics</span>
+    </a>
+
+    <div class="sb-section">Catalog</div>
+    <a class="sb-item" data-page="products" href="#">
+      <i class="fa-solid fa-box"></i><span>Products</span>
+    </a>
+    <a class="sb-item" data-page="banners" href="#">
+      <i class="fa-solid fa-image"></i><span>Hero Banners</span>
+    </a>
+    <a class="sb-item" data-page="promos" href="#">
+      <i class="fa-solid fa-tag"></i><span>Sales & Promos</span>
+    </a>
+    <a class="sb-item" data-page="blog" href="#">
+      <i class="fa-solid fa-newspaper"></i><span>Blog Posts</span>
+    </a>
+
+    <div class="sb-section">Store</div>
+    <a class="sb-item" data-page="orders" href="#">
+      <i class="fa-solid fa-bag-shopping"></i><span>Orders</span>
+      <span class="sb-badge" id="orderBadge">0</span>
+    </a>
+    <a class="sb-item" data-page="wishlist" href="#">
+      <i class="fa-solid fa-heart"></i><span>Wishlist Data</span>
+    </a>
+
+    <div class="sb-section">System</div>
+    <a class="sb-item" data-page="settings" href="#">
+      <i class="fa-solid fa-gear"></i><span>Site Settings</span>
+    </a>
+  </nav>
+
+  <div class="sb-bottom">
+    <div class="sb-user">
+      <div class="sb-avatar" id="sbAvatar">SA</div>
+      <div class="sb-user-info">
+        <div class="sb-user-name" id="sbUsername">Super Admin</div>
+        <div class="sb-user-role">Full access</div>
+      </div>
+    </div>
+    <button class="sb-logout" id="logoutBtn" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+  </div>
+</aside>
+
+<!-- MOBILE TOPBAR -->
+<div class="mobile-bar">
+  <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+  <div class="mobile-logo">PressMart Admin</div>
+  <button class="hamburger" id="logoutMobile" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- MAIN -->
+<main class="main-content" id="mainContent">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1 class="page-title" id="pageTitle">Dashboard</h1>
+      <span class="breadcrumb" id="pageBreadcrumb">/ Overview</span>
+    </div>
+    <div class="topbar-right">
+      <a href="index.html" target="_blank" class="tb-btn"><i class="fa-solid fa-eye"></i> Preview Store</a>
+      <button class="tb-btn primary" id="primaryActionBtn"><i class="fa-solid fa-plus"></i> Add Product</button>
+    </div>
+  </div>
+
+  <!-- PAGES -->
+  <div class="page-content">
+
+    <!-- -------------------------------------------
+         DASHBOARD
+    ------------------------------------------- -->
+    <section id="page-dashboard" class="page active">
+      <div class="stat-grid" id="dashStats"></div>
+      <div class="dash-grid">
+        <div class="panel" id="recentOrdersPanel">
+          <div class="panel-head">
+            <div class="panel-title"><i class="fa-solid fa-bag-shopping"></i> Recent Orders</div>
+            <button class="panel-link" onclick="goPage('orders')">View all <i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+          <div class="panel-body" id="dashOrders"></div>
+        </div>
+        <div class="dash-right">
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title"><i class="fa-solid fa-fire"></i> Top Products</div></div>
+            <div class="panel-body" id="dashTopProducts"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title"><i class="fa-solid fa-clock-rotate-left"></i> Activity Feed</div></div>
+            <div class="panel-body" id="dashActivity"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         PRODUCTS
+    ------------------------------------------- -->
+    <section id="page-products" class="page">
+      <div class="toolbar">
+        <div class="search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input type="search" id="productSearch" placeholder="Search products"></div>
+        <div class="tag-filter-buttons" id="productTagTabs">
+          <button type="button" class="tag-tab active" data-tag="">All</button>
+          <button type="button" class="tag-tab" data-tag="new-arrival">New Arrival</button>
+          <button type="button" class="tag-tab" data-tag="best-selling">Best Selling</button>
+          <button type="button" class="tag-tab" data-tag="top-rated">Trending</button>
+        </div>
+        <button class="btn-primary" id="openAddProduct"><i class="fa-solid fa-plus"></i> Add Product</button>
+      </div>
+      <div class="panel">
+        <table class="admin-table" id="productTable">
+          <thead><tr><th style="width:36px"></th><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Tags</th><th>Actions</th></tr></thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         BANNERS
+    ------------------------------------------- -->
+    <section id="page-banners" class="page">
+      <div class="toolbar">
+        <p class="toolbar-hint"><i class="fa-solid fa-circle-info"></i> Drag banners to reorder. Changes are saved instantly and reflected on the homepage slider.</p>
+        <button class="btn-primary" id="openAddBanner"><i class="fa-solid fa-plus"></i> Add Banner</button>
+      </div>
+      <div id="bannerList" class="banner-list"></div>
+    </section>
+
+    <!-- -------------------------------------------
+         PROMOS
+    ------------------------------------------- -->
+    <section id="page-promos" class="page">
+      <div class="toolbar">
+        <button class="btn-primary" id="openAddPromo"><i class="fa-solid fa-plus"></i> Create Promo</button>
+      </div>
+      <div class="promo-grid" id="promoGrid"></div>
+    </section>
+
+    <!-- -------------------------------------------
+         BLOG
+    ------------------------------------------- -->
+    <section id="page-blog" class="page">
+      <div class="toolbar">
+        <div class="search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input type="search" id="blogSearch" placeholder="Search articles�"></div>
+        <button class="btn-primary" id="openAddBlog"><i class="fa-solid fa-plus"></i> New Article</button>
+      </div>
+      <div class="panel">
+        <table class="admin-table" id="blogTable">
+          <thead><tr><th>Title</th><th>Author</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="blogTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         ORDERS
+    ------------------------------------------- -->
+    <section id="page-orders" class="page">
+      <div class="toolbar">
+        <div class="search-wrap"><i class="fa-solid fa-magnifying-glass"></i><input type="search" id="orderSearch" placeholder="Search order ID or customer�"></div>
+        <select id="orderStatusFilter" class="filter-select">
+          <option value="">All Statuses</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Shipped">Shipped</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+      <div class="panel">
+        <table class="admin-table" id="ordersTable">
+          <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+          <tbody id="ordersTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         WISHLIST
+    ------------------------------------------- -->
+    <section id="page-wishlist" class="page">
+      <div class="panel">
+        <div class="panel-head"><div class="panel-title"><i class="fa-solid fa-heart"></i> Saved Wishlist Items</div></div>
+        <div class="panel-body" id="wishlistAdmin"></div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         ANALYTICS
+    ------------------------------------------- -->
+    <section id="page-analytics" class="page">
+      <div class="stat-grid" id="analyticsStats"></div>
+      <div class="analytics-grid">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title"><i class="fa-solid fa-chart-bar"></i> Revenue by Product</div></div>
+          <div class="panel-body" id="revenueChart"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title"><i class="fa-solid fa-list-check"></i> Order Status Breakdown</div></div>
+          <div class="panel-body" id="statusChart"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -------------------------------------------
+         SETTINGS
+    ------------------------------------------- -->
+    <section id="page-settings" class="page">
+      <div class="settings-grid">
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title"><i class="fa-solid fa-store"></i> Store Info</div></div>
+          <div class="panel-body settings-form" id="settingsForm">
+            <div class="form-row"><label>Store Name</label><input type="text" id="set-storeName" placeholder="PressMart"></div>
+            <div class="form-row"><label>Support Email</label><input type="email" id="set-email" placeholder="support@pressmart.com"></div>
+            <div class="form-row"><label>Support Phone</label><input type="text" id="set-phone" placeholder="+123 456 789"></div>
+            <div class="form-row"><label>Top Bar Message</label><input type="text" id="set-topbar" placeholder="Welcome to Our Store"></div>
+            <div class="form-row"><label>Free Shipping Threshold ($)</label><input type="number" id="set-freeShipping" placeholder="99"></div>
+            <div class="form-row"><label>Footer Copyright Text</label><input type="text" id="set-footer" placeholder="� 2026 PressMart. All rights reserved."></div>
+            <div class="form-row"><label>Tax Rate (%)</label><input type="number" id="set-tax" placeholder="5" step="0.1"></div>
+            <button class="btn-primary" id="saveSettings"><i class="fa-solid fa-floppy-disk"></i> Save Settings</button>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title"><i class="fa-solid fa-lock"></i> Admin Credentials</div></div>
+          <div class="panel-body settings-form">
+            <div class="form-row"><label>Admin Username</label><input type="text" id="set-username" placeholder="admin"></div>
+            <div class="form-row"><label>Current Password</label><input type="password" id="set-oldPass"></div>
+            <div class="form-row"><label>New Password</label><input type="password" id="set-newPass"></div>
+            <div class="form-row"><label>Confirm New Password</label><input type="password" id="set-confirmPass"></div>
+            <p id="pwChangeMsg" style="font-size:12.5px;min-height:18px;margin-bottom:8px"></p>
+            <button class="btn-primary" id="changePassBtn"><i class="fa-solid fa-key"></i> Update Credentials</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /page-content -->
+</main>
+
+<!-- -------------------------------------------
+     GLOBAL MODAL
+------------------------------------------- -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-head">
+      <h3 id="modalTitle">Modal</h3>
+      <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-foot" id="modalFoot"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="admin-panel.js"></script>
+</body>
+</html>
