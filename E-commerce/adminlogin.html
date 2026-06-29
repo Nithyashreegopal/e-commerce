@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login — PressMart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:#f0f2f8;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+    .login-wrap{background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,0.10);width:100%;max-width:420px;overflow:hidden}
+    .login-header{background:#0f172a;padding:32px 36px 28px;text-align:center}
+    .login-logo{font-size:26px;font-weight:800;color:#f1f5f9;letter-spacing:-1px}
+    .login-logo span{color:#3b82f6}
+    .login-tagline{font-size:12px;color:#64748b;margin-top:4px;letter-spacing:0.5px}
+    .login-body{padding:32px 36px}
+    .login-body h2{font-size:18px;font-weight:700;color:#1e293b;margin-bottom:6px}
+    .login-body p{font-size:13px;color:#64748b;margin-bottom:24px}
+    .form-group{margin-bottom:18px}
+    .form-group label{display:block;font-size:12.5px;font-weight:600;color:#374151;margin-bottom:6px}
+    .form-group input{width:100%;padding:11px 44px 11px 40px;border:1.5px solid #e5e7eb;border-radius:8px;font-size:14px;font-family:'Poppins',sans-serif;color:#111827;outline:none;transition:border-color 0.2s,box-shadow 0.2s;background:#fff}
+    .form-group input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.12)}
+    .input-wrap{position:relative}
+    .input-wrap i{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:14px}
+    .pw-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#9ca3af;font-size:14px;cursor:pointer;background:none;border:none;padding:0;width:34px;height:34px;display:flex;align-items:center;justify-content:center}
+    .pw-toggle:hover{color:#374151}
+    .login-btn{width:100%;padding:13px;background:#1e40af;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;font-family:'Poppins',sans-serif;cursor:pointer;transition:background 0.2s,transform 0.15s;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px}
+    .login-btn:hover{background:#1d3a96;transform:translateY(-1px)}
+    .login-btn:active{transform:none}
+    .login-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+    .error-msg{background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:10px 14px;font-size:12.5px;color:#dc2626;margin-bottom:16px;display:none;align-items:center;gap:8px}
+    .error-msg.show{display:flex}
+    .hint{background:#eff6ff;border-radius:8px;padding:10px 14px;font-size:12px;color:#1d4ed8;margin-top:16px;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+    .login-footer{text-align:center;padding:0 36px 24px;font-size:12px;color:#9ca3af}
+    .login-footer a{color:#3b82f6;text-decoration:none}
+    .login-footer a:hover{text-decoration:underline}
+  </style>
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-header">
+      <div class="login-logo">Press<span>Mart</span>.</div>
+      <div class="login-tagline">Admin Control Panel</div>
+    </div>
+    <div class="login-body">
+      <h2>Sign in to Admin</h2>
+      <p>Enter your credentials to manage the store.</p>
+      <div class="error-msg" id="loginError"><i class="fa-solid fa-circle-exclamation"></i><span id="loginErrorText">Invalid username or password.</span></div>
+      <div class="form-group">
+        <label for="adminUser">Username</label>
+        <div class="input-wrap">
+          <i class="fa-regular fa-user"></i>
+          <input type="text" id="adminUser" placeholder="admin" autocomplete="username">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="adminPass">Password</label>
+        <div class="input-wrap">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" id="adminPass" placeholder="••••••••" autocomplete="current-password">
+          <button class="pw-toggle" id="pwToggle" type="button" aria-label="Toggle password"><i class="fa-regular fa-eye" id="pwIcon"></i></button>
+        </div>
+      </div>
+      <button class="login-btn" id="loginBtn"><i class="fa-solid fa-right-to-bracket"></i> Sign In</button>
+      <div class="hint"><i class="fa-solid fa-circle-info" style="margin-top:1px;flex-shrink:0"></i><span>Admin credentials are stored in the database. Use the current database username/password, and update them from the Site Settings page after login.</span></div>
+    </div>
+    <div class="login-footer">
+      <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to store</a>
+    </div>
+  </div>
+  <script>
+    const SESSION_KEY = 'pressmart_admin_session';
+    const API_BASE_URL = 'http://127.0.0.1:5000/api';
+
+    if (sessionStorage.getItem(SESSION_KEY)) {
+      window.location.href = 'adminpanel.html';
+    }
+
+    document.getElementById('pwToggle').addEventListener('click', () => {
+      const inp = document.getElementById('adminPass');
+      const icon = document.getElementById('pwIcon');
+      if (inp.type === 'password') { inp.type = 'text'; icon.className = 'fa-regular fa-eye-slash'; }
+      else { inp.type = 'password'; icon.className = 'fa-regular fa-eye'; }
+    });
+
+    function showError(msg) {
+      const el = document.getElementById('loginError');
+      document.getElementById('loginErrorText').textContent = msg;
+      el.classList.add('show');
+    }
+
+    document.getElementById('loginBtn').addEventListener('click', doLogin);
+    document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+    document.getElementById('adminUser').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+    async function doLogin() {
+      const u = document.getElementById('adminUser').value.trim();
+      const p = document.getElementById('adminPass').value;
+      const btn = document.getElementById('loginBtn');
+      if (!u || !p) { showError('Please enter username and password.'); return; }
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing in…';
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/admin/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: u, password: p })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Invalid credentials');
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify({ username: data.username, loginTime: Date.now() }));
+        window.location.href = 'adminpanel.html';
+      } catch (err) {
+        showError(err.message || 'Invalid username or password.');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i> Sign In';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - PressMart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="product">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="left">
+    <span><i class="fa-solid fa-envelope"></i> support@pressmart.com</span>
+    <span><i class="fa-solid fa-phone"></i> +123 456 789</span>
+  </div>
+  <div class="center">Welcome to Our Store</div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">PressMart.</div>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <ul class="nav-links">
+    <li class="active">Home</li>
+    <li>Shop</li>
+        <li>Blog</li>
+    <li>Buy</li>
+  </ul>
+  <div class="icons">
+    <i class="fa-regular fa-user"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-heart"></i>
+    <div class="cart-wrap" role="button" aria-label="Open cart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="cart-count" aria-hidden="true">0</span>
+    </div>
+  </div>
+</nav>
+
+<section class="product-page">
+  <div class="product-page-inner">
+    <div class="product-gallery">
+      <div class="product-main-image">
+        <img id="productImage" src="" alt="Product image">
+      </div>
+      <div class="product-thumbnails" id="productGallery"></div>
+    </div>
+
+    <div class="product-summary">
+      <div class="product-meta"><span id="productCategory"></span></div>
+      <h1 id="productTitle"></h1>
+      <div class="product-rating">
+        <div id="productRating"></div>
+        <span id="productReviewCount"></span>
+      </div>
+      <div class="product-brand"><strong>Brand:</strong> <span id="productBrand"></span></div>
+      <div class="product-stock" id="productStock"></div>
+      <p class="product-description" id="productDescription"></p>
+      <div class="product-price-row">
+        <span class="product-price" id="productPrice"></span>
+        <span class="product-old-price" id="productOldPrice"></span>
+      </div>
+      <div class="product-details-grid">
+        <div>
+          <h4>Available Sizes</h4>
+          <div id="productSizes" class="product-options"></div>
+        </div>
+        <div>
+          <h4>Available Colors</h4>
+          <div id="productColors" class="product-options"></div>
+        </div>
+      </div>
+      <div class="product-details-grid simple-grid">
+        <div><strong>Delivery</strong><p id="productDelivery"></p></div>
+        <div><strong>Return policy</strong><p id="productReturns"></p></div>
+      </div>
+      <div class="product-actions">
+        <button class="btn-primary" id="addToCartBtn">Add to Cart</button>
+        <button class="btn-outline" id="wishlistBtn"><i class="fa-regular fa-heart"></i> Add to Wishlist</button>
+        <button class="btn-outline" id="buyNowBtn">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="product-info-section">
+    <div class="product-specs-block">
+      <h3>Product specifications</h3>
+      <ul id="productSpecs"></ul>
+    </div>
+
+    <div class="product-reviews-block">
+      <div class="reviews-summary">
+        <div id="averageRating" class="average-rating"></div>
+        <p id="reviewCount"></p>
+      </div>
+      <div id="reviewList" class="review-list"></div>
+      <div class="review-form-block">
+        <h3>Write a review</h3>
+        <form id="reviewForm">
+          <div class="form-row">
+            <label for="reviewerName">Name</label>
+            <input type="text" id="reviewerName" name="reviewerName" required>
+          </div>
+          <div class="form-row">
+            <label for="reviewRating">Rating</label>
+            <select id="reviewRating" name="reviewRating">
+              <option value="5">⭐⭐⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="1">⭐</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="reviewComment">Review</label>
+            <textarea id="reviewComment" name="reviewComment" rows="4" required></textarea>
+          </div>
+          <p class="form-error" id="reviewError"></p>
+          <button class="btn-primary" type="submit">Submit review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <section id="similarProducts" class="similar-products-section"></section>
+</section>
+
+<footer>
+  <p>© 2026 PressMart. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

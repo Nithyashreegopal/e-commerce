@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PressMart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="left">
+    <span><i class="fa-solid fa-envelope"></i> support@pressmart.com</span>
+    <span><i class="fa-solid fa-phone"></i> +123 456 789</span>
+  </div>
+  <div class="center">Welcome to Our Store</div>
+  
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">PressMart.</div>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <ul class="nav-links">
+    <li class="active">Home</li>
+    <li>Shop</li>
+        <li>Blog</li>
+    <li>Buy</li>
+  </ul>
+  <div class="icons">
+    <i class="fa-regular fa-user"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-heart"></i>
+    <div class="cart-wrap" role="button" aria-label="Open cart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="cart-count" aria-hidden="true">0</span>
+    </div>
+    <a href="adminlogin.html" class="admin-btn">Admin</a>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<section class="hero-slider" id="heroSlider">
+  <button class="slider-arrow prev" aria-label="Previous slide">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button class="slider-arrow next" aria-label="Next slide">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+  <div class="hero-track" id="heroSlides">
+    <!-- Hero Slides with Local Images -->
+    <div class="slide active">
+      <img src="IMAGES/WOMEN.webp" alt="Women's Collection">
+      <div class="slide-overlay">
+        <h1>Women's Collection</h1>
+        <p>Discover the Latest Styles</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="IMAGES/fashion men.webp" alt="Men's Fashion">
+      <div class="slide-overlay">
+        <h1>Men's Fashion</h1>
+        <p>Premium Quality Products</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="IMAGES/HANDBAG.webp" alt="Handbags">
+      <div class="slide-overlay">
+        <h1>Exclusive Handbags</h1>
+        <p>Elegant & Timeless Designs</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="IMAGES/shoes.webp" alt="Shoes Collection">
+      <div class="slide-overlay">
+        <h1>Shoes Collection</h1>
+        <p>Comfort Meets Style</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="IMAGES/BACKPACK.webp" alt="Backpacks">
+      <div class="slide-overlay">
+        <h1>Travel Essentials</h1>
+        <p>Durable & Stylish Backpacks</p>
+      </div>
+    </div>
+  </div>
+  <div class="slider-dots" id="heroDots">
+    <span class="dot active" data-index="0"></span>
+    <span class="dot" data-index="1"></span>
+    <span class="dot" data-index="2"></span>
+    <span class="dot" data-index="3"></span>
+    <span class="dot" data-index="4"></span>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature">
+    <i class="fa-solid fa-truck"></i>
+    <div>
+      <h4>Free Shipping</h4>
+      <p>On All Orders Over $99</p>
+    </div>
+  </div>
+  <div class="feature">
+    <i class="fa-solid fa-shield-halved"></i>
+    <div>
+      <h4>Secure Payment</h4>
+      <p>We ensure secure payment</p>
+    </div>
+  </div>
+  <div class="feature">
+    <i class="fa-solid fa-money-bill-wave"></i>
+    <div>
+      <h4>100% Money Back</h4>
+      <p>30 Days Return Policy</p>
+    </div>
+  </div>
+  <div class="feature">
+    <i class="fa-solid fa-headset"></i>
+    <div>
+      <h4>Online Support</h4>
+      <p>24/7 Dedicated Support</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+  <div class="large-card">
+    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&q=80" alt="Women Style">
+    <div class="overlay">
+      <h3>New Arrivals</h3>
+      <h2>Women's Style</h2>
+      <p>Up to 70% Off</p>
+      <button>Shop Now</button>
+    </div>
+  </div>
+
+  <div class="small-grid">
+    <div class="small-card">
+      <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80" alt="Handbag">
+      <span class="card-badge red">20% Off</span>
+      <div class="card-info">
+        <h3>Handbag</h3>
+        <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="small-card">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" alt="Watch">
+      <span class="card-badge blue">40% Off</span>
+      <div class="card-info">
+        <h3>Watch</h3>
+        <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="small-card full">
+      <img src="IMAGES/Best-Mens-Leather-Backpacks.jpg" alt="Backpack">
+      <span class="card-badge dark">Accessories</span>
+      <div class="card-info">
+        <h3>Backpack</h3>
+        <a href="#">Min. 40–60% Off <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="products">
+  <h2>Featured Products</h2>
+  <div class="product-tabs">
+    <span class="active">New Arrival</span>
+    <span>Best Selling</span>
+    <span>Top Rated</span>
+  </div>
+
+  <div class="product-grid">
+
+    <div class="product-card" data-category="best-selling">
+      <div class="img-wrap">
+        <span class="badge">5% Off</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1581605405669-fcdf81165afa?w=500&q=80" alt="Backpack">
+      </div>
+      <div class="info">
+        <div class="meta">Backpacks</div>
+        <h4>Tan Solid Laptop Backpack</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(0)</span>
+        </div>
+        <div class="price">$149.00 <span class="old">$185.00</span></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="best-selling">
+      <div class="img-wrap">
+        <span class="badge">8% Off</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500&q=80" alt="Jacket">
+      </div>
+      <div class="info">
+        <div class="meta">Jackets</div>
+        <h4>Brown Solid Biker Jacket</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(1)</span>
+        </div>
+        <div class="price">$110.00 <span class="old">$120.00</span></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="new-arrival">
+      <div class="img-wrap">
+        <span class="badge new">New</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=500&q=80" alt="Boots">
+      </div>
+      <div class="info">
+        <div class="meta">Casual Shoes, Sneakers</div>
+        <h4>Men Brown Solid Mid-Top Boots</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i> <span>(1)</span>
+        </div>
+        <div class="price">$115.00</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="top-rated">
+      <div class="img-wrap">
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&q=80" alt="T-Shirt">
+      </div>
+      <div class="info">
+        <div class="meta">Dresses &amp; Tops</div>
+        <h4>Felite Olive Green Solid Top</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(1)</span>
+        </div>
+        <div class="price">$49.00</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="best-selling">
+      <div class="img-wrap">
+        <span class="badge">6% Off</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=500&q=80" alt="Handbag">
+      </div>
+      <div class="info">
+        <div class="meta">Handbags, Women Bags</div>
+        <h4>Brown Solid Laptop Bag</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <div class="price">$99.00 <span class="old">$120.00</span></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="best-selling">
+      <div class="img-wrap">
+        <span class="badge">12% Off</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&q=80" alt="Watch">
+      </div>
+      <div class="info">
+        <div class="meta">Analog Watches, Digital</div>
+        <h4>Analog Watches Black Regular</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(0)</span>
+        </div>
+        <div class="price">$1,599.00</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="new-arrival">
+      <div class="img-wrap">
+        <span class="badge new">New</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&q=80" alt="Shoulder Bag">
+      </div>
+      <div class="info">
+        <div class="meta">Handbags</div>
+        <h4>Navy Blue Self Design Shoulder Bag</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(1)</span>
+        </div>
+        <div class="price">$78.00</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="top-rated">
+      <div class="img-wrap">
+        <span class="badge">70% Off</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=500&q=80" alt="Belt">
+      </div>
+      <div class="info">
+        <div class="meta">Belts</div>
+        <h4>Brown Solid Leather Belt</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i> <span>(1)</span>
+        </div>
+        <div class="price">$15.00 <span class="old">$50.00</span></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="best-selling">
+      <div class="img-wrap">
+        <span class="badge">15% Off</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80" alt="Aviator Sunglasses">
+      </div>
+      <div class="info">
+        <div class="meta">Laptops</div>
+        <h4>Aviator Frame Laptop</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(2)</span>
+        </div>
+        <div class="price">$119.00 <span class="old">$139.00</span></div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="new-arrival">
+      <div class="img-wrap">
+        <span class="badge new">New</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="IMAGES/pexels-photo-277390.jpeg" alt="Smartwatch">
+      </div>
+      <div class="info">
+        <div class="meta">Smartwear</div>
+        <h4>Black Fitness Smartwatch</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(3)</span>
+        </div>
+        <div class="price">$129.00</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="top-rated">
+      <div class="img-wrap">
+        <span class="badge">Best</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="IMAGES/istockphoto-1394359723-612x612.jpg" alt="White Sneakers">
+      </div>
+      <div class="info">
+        <div class="meta">Casual Shoes</div>
+        <h4>White Minimal Sneakers</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i> <span>(4)</span>
+        </div>
+        <div class="price">$89.00</div>
+      </div>
+    </div>
+
+    <div class="product-card" data-category="best-selling">
+      <div class="img-wrap">
+        <span class="badge">10% Off</span>
+        <div class="wishlist"><i class="fa-solid fa-heart"></i></div>
+        <img src="IMAGES/Valink-2019-Hot-Sale-Men-s-Wallet-Fashion-Pu-Leather-Men-Wallets-Luxury-Brand-Male-Purses-3.jpg" alt="Leather Wallet">
+      </div>
+      <div class="info">
+        <div class="meta">Wallets</div>
+        <h4>Genuine Leather Travel Wallet</h4>
+        <div class="stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <i class="fa-regular fa-star"></i> <span>(2)</span>
+        </div>
+        <div class="price">$39.00 <span class="old">$43.00</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMO BANNERS -->
+<section class="promo">
+
+  <div class="promo-card men-card">
+    <div class="promo-bg men"></div>
+    <img class="promo-img" src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=400&q=80" alt="Men">
+    <div class="promo-content">
+      <div class="promo-tag">Weekend Sale</div>
+      <h2>Men's Fashion</h2>
+      <div class="discount">Flat 70% OFF</div>
+      <a href="#" class="shop-link">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <div class="promo-card women-card">
+    <div class="promo-bg women"></div>
+    <img class="promo-img" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80" alt="Women">
+    <div class="promo-content">
+      <div class="promo-tag muted">Fashion Style</div>
+      <h2>Women's Wear</h2>
+      <div class="discount red">Min 35–70% OFF</div>
+      <a href="#" class="shop-link dark">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 PressMart. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

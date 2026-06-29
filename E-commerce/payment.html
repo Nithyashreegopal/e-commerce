@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment - PressMart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="payment">
+
+<div class="top-bar">
+  <div class="left">
+    <span><i class="fa-solid fa-envelope"></i> support@pressmart.com</span>
+    <span><i class="fa-solid fa-phone"></i> +123 456 789</span>
+  </div>
+  <div class="center">Welcome to Our Store</div>
+</div>
+
+<nav class="navbar">
+  <div class="logo">PressMart.</div>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <ul class="nav-links">
+    <li><i class="fa-solid fa-house nav-item-icon"></i>Home</li>
+    <li><i class="fa-solid fa-bag-shopping nav-item-icon"></i>Shop</li>
+    <li><i class="fa-solid fa-file-lines nav-item-icon"></i>Pages</li>
+    <li><i class="fa-solid fa-newspaper nav-item-icon"></i>Blog</li>
+    <li><i class="fa-solid fa-layer-group nav-item-icon"></i>Elements</li>
+    <li><i class="fa-solid fa-credit-card nav-item-icon"></i>Buy</li>
+  </ul>
+  <div class="icons">
+    <i class="fa-regular fa-user"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-heart"></i>
+    <div class="cart-wrap" role="button" aria-label="Open cart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="cart-count" aria-hidden="true">0</span>
+    </div>
+  </div>
+</nav>
+
+<section class="payment-page">
+  <div class="payment-header">
+    <div class="secure-badge"><i class="fa-solid fa-lock"></i> SECURE SEC-PAY</div>
+    <h1>Secure Checkout</h1>
+    <p>Complete your order safely. Your connection is fully encrypted.</p>
+  </div>
+  
+  <div id="paymentContent">
+    <div class="payment-layout">
+      
+      <div class="payment-options-panel">
+        <form id="paymentForm">
+          <h3 class="panel-section-title">Select Payment Method</h3>
+          
+          <div class="payment-method-grid">
+            
+            <label class="method-card selected">
+              <input type="radio" name="paymentMethod" value="credit-card" checked>
+              <div class="method-card-inner">
+                <div class="method-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <div class="method-name">Credit Card</div>
+              </div>
+            </label>
+            
+            <label class="method-card">
+              <input type="radio" name="paymentMethod" value="debit-card">
+              <div class="method-card-inner">
+                <div class="method-icon"><i class="fa-solid fa-credit-card"></i></div>
+                <div class="method-name">Debit Card</div>
+              </div>
+            </label>
+            
+            <label class="method-card">
+              <input type="radio" name="paymentMethod" value="upi">
+              <div class="method-card-inner">
+                <div class="method-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                <div class="method-name">UPI / VPA</div>
+              </div>
+            </label>
+            
+            <label class="method-card">
+              <input type="radio" name="paymentMethod" value="net-banking">
+              <div class="method-card-inner">
+                <div class="method-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <div class="method-name">Net Banking</div>
+              </div>
+            </label>
+            
+            <label class="method-card">
+              <input type="radio" name="paymentMethod" value="wallet">
+              <div class="method-card-inner">
+                <div class="method-icon"><i class="fa-solid fa-wallet"></i></div>
+                <div class="method-name">Wallets</div>
+              </div>
+            </label>
+            
+            <label class="method-card">
+              <input type="radio" name="paymentMethod" value="cod">
+              <div class="method-card-inner">
+                <div class="method-icon"><i class="fa-solid fa-truck"></i></div>
+                <div class="method-name">COD</div>
+              </div>
+            </label>
+            
+          </div>
+
+          <div class="method-details-container">
+            
+            <!-- CREDIT CARD DETAILS -->
+            <div id="details-credit-card" class="method-details active">
+              <div class="details-header">
+                <h4>Credit Card Information</h4>
+                <div class="card-brands">
+                  <i class="fa-brands fa-cc-visa"></i>
+                  <i class="fa-brands fa-cc-mastercard"></i>
+                  <i class="fa-brands fa-cc-amex"></i>
+                  <i class="fa-brands fa-cc-discover"></i>
+                </div>
+              </div>
+              
+              <div class="payment-fields-grid">
+                <div class="form-row full-width">
+                  <label for="cardName">Cardholder Name</label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="cardName" placeholder="John Doe">
+                  </div>
+                </div>
+                <div class="form-row full-width">
+                  <label for="cardNumber">Card Number</label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <input type="text" id="cardNumber" placeholder="xxxx xxxx xxxx xxxx">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="cardExpiry">Expiration Date</label>
+                  <input type="text" id="cardExpiry" placeholder="MM/YY">
+                </div>
+                <div class="form-row">
+                  <label for="cardCvv">CVV Code</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <input type="password" id="cardCvv" placeholder="•••">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DEBIT CARD DETAILS -->
+            <div id="details-debit-card" class="method-details">
+              <div class="details-header">
+                <h4>Debit Card Information</h4>
+                <div class="card-brands">
+                  <i class="fa-brands fa-cc-visa"></i>
+                  <i class="fa-brands fa-cc-mastercard"></i>
+                </div>
+              </div>
+              
+              <div class="payment-fields-grid">
+                <div class="form-row full-width">
+                  <label for="cardNameDebit">Cardholder Name</label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" id="cardNameDebit" placeholder="John Doe">
+                  </div>
+                </div>
+                <div class="form-row full-width">
+                  <label for="cardNumberDebit">Card Number</label>
+                  <div class="input-with-icon">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <input type="text" id="cardNumberDebit" placeholder="xxxx xxxx xxxx xxxx">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <label for="cardExpiryDebit">Expiration Date</label>
+                  <input type="text" id="cardExpiryDebit" placeholder="MM/YY">
+                </div>
+                <div class="form-row">
+                  <label for="cardCvvDebit">CVV Code</label>
+                  <div class="input-with-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <input type="password" id="cardCvvDebit" placeholder="•••">
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- UPI DETAILS -->
+            <div id="details-upi" class="method-details">
+              <div class="details-header">
+                <h4>UPI VPA Address</h4>
+                <span class="upi-logo"><i class="fa-solid fa-mobile-screen"></i> UPI</span>
+              </div>
+              <div class="form-row">
+                <label for="upiId">Enter UPI ID</label>
+                <div class="input-with-icon">
+                  <i class="fa-solid fa-at"></i>
+                  <input type="text" id="upiId" placeholder="username@bank">
+                </div>
+                <small class="field-hint">Your virtual payment address (VPA)</small>
+              </div>
+              <div class="upi-shortcuts">
+                <button type="button" class="upi-shortcut-tag" data-suffix="@okaxis">@okaxis</button>
+                <button type="button" class="upi-shortcut-tag" data-suffix="@okhdfc">@okhdfc</button>
+                <button type="button" class="upi-shortcut-tag" data-suffix="@okicici">@okicici</button>
+                <button type="button" class="upi-shortcut-tag" data-suffix="@paytm">@paytm</button>
+              </div>
+            </div>
+            
+            <!-- NET BANKING DETAILS -->
+            <div id="details-net-banking" class="method-details">
+              <div class="details-header">
+                <h4>Net Banking</h4>
+              </div>
+              <div class="form-row">
+                <label for="bankSelect">Choose your Bank</label>
+                <div class="input-with-icon select-wrap">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <select id="bankSelect">
+                    <option value="" disabled selected>Choose Bank</option>
+                    <option value="HDFC Bank">HDFC Bank</option>
+                    <option value="ICICI Bank">ICICI Bank</option>
+                    <option value="State Bank of India">State Bank of India (SBI)</option>
+                    <option value="Axis Bank">Axis Bank</option>
+                    <option value="Kotak Bank">Kotak Mahindra Bank</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <!-- WALLET DETAILS -->
+            <div id="details-wallet" class="method-details">
+              <div class="details-header">
+                <h4>Digital Wallets</h4>
+              </div>
+              <div class="form-row">
+                <label for="walletSelect">Choose Wallet Provider</label>
+                <div class="input-with-icon select-wrap">
+                  <i class="fa-solid fa-wallet"></i>
+                  <select id="walletSelect">
+                    <option value="" disabled selected>Choose Wallet</option>
+                    <option value="PayPal">PayPal</option>
+                    <option value="GooglePay">Google Pay</option>
+                    <option value="ApplePay">Apple Pay</option>
+                    <option value="AmazonPay">Amazon Pay</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <!-- COD DETAILS -->
+            <div id="details-cod" class="method-details">
+              <div class="details-header">
+                <h4>Cash on Delivery</h4>
+              </div>
+              <div class="cod-box">
+                <div class="cod-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="cod-text">
+                  <h5>No pre-payment required</h5>
+                  <p>You can pay our delivery agent in cash or scan their UPI QR code upon arrival. Please ensure you have the exact amount ready.</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="payment-actions">
+            <p id="paymentError" class="form-error"></p>
+            <button class="btn-primary" id="paymentSubmit" type="submit">
+              <span class="btn-text"><i class="fa-solid fa-lock"></i> Pay Securely</span>
+              <span class="btn-loading"><i class="fa-solid fa-circle-notch fa-spin"></i> Processing Payment...</span>
+            </button>
+            <p class="trust-notice"><i class="fa-solid fa-shield-halved"></i> SSL Secured 256-bit Encrypted Checkout</p>
+          </div>
+        </form>
+      </div>
+      
+      <aside class="payment-summary-panel">
+        <div class="summary-card">
+          <h3 class="panel-section-title">Order Details</h3>
+          <div id="paymentSummary" class="payment-summary-list"></div>
+          <div class="secure-badges">
+            <div class="badge-item"><i class="fa-solid fa-shield-halved"></i> <span>SECURE PAY</span></div>
+            <div class="badge-item"><i class="fa-solid fa-rotate-left"></i> <span>30 DAY RETURN</span></div>
+          </div>
+        </div>
+      </aside>
+      
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2026 PressMart. All rights reserved.</p></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
